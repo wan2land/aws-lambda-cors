@@ -1,10 +1,11 @@
 {
   "name": "aws-lambda-cors",
-  "version": "0.0.0",
-  "description": ".",
+  "version": "0.0.2",
+  "description": "CORS Library for AWS Lambda with APIGateway.",
   "keywords": [
     "cors",
     "lambda",
+    "apigateway",
     "cdk",
     "aws",
     "typescript"

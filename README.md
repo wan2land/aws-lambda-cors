@@ -10,7 +10,7 @@
   <a href="https://david-dm.org/wan2land/aws-lambda-cors?type=dev"><img alt="devDependencies Status" src="https://img.shields.io/david/dev/wan2land/aws-lambda-cors.svg?style=flat-square" /></a>
 </p>
 
-Copy source files and `node_modules` without `devDependencies` to destination directory.
+CORS Library for AWS Lambda with APIGateway.
 
 ## Installation
 
@@ -19,3 +19,42 @@ npm install aws-lambda-cors --save
 ```
 
 ## Usage
+
+```typescript
+import { cors } from 'aws-lambda-cors'
+
+const originLambdaHandler = async (event, ctx) => {
+  return {
+    statusCode: 200,
+    body: '',
+  })
+}
+
+// Also OK.
+//
+// const originLambdaHandler = (event, ctx, callback) => {
+//   callback(null, {
+//     statusCode: 200,
+//     body: '',
+//   })
+// }
+
+export const lambdaHandler = cors({
+  allowCredentials: true,
+  allowOrigins: [
+    'http://localhost:8000',
+    'https://wani.kr',
+  ],
+  allowMethods: [
+    'OPTIONS',
+    'HEAD',
+    'GET',
+    'POST',
+  ],
+  allowHeaders: [
+    'Authorization',
+    'Content-Type',
+  ],
+  allowCredentials: true,
+})(originLambdaHandler)
+```
