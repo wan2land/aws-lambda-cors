@@ -1,0 +1,46 @@
+{
+  "name": "aws-lambda-cors",
+  "version": "0.0.0",
+  "description": ".",
+  "keywords": [
+    "cors",
+    "lambda",
+    "cdk",
+    "aws",
+    "typescript"
+  ],
+  "author": "Changwan Jun <wan2land@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wan2land/aws-lambda-cors.git"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "prepack": "npm run test && npm run build",
+    "build": "rimraf ./lib && tsc --emitDeclarationOnly && babel src --out-dir lib --extensions \".ts\" --source-maps inline",
+    "test": "npm run test:lint && npm run test:unit",
+    "test:lint": "eslint src/**/**/*.ts",
+    "test:unit": "jest src --runInBand"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "7.12.8",
+    "@babel/core": "7.12.9",
+    "@babel/plugin-proposal-class-properties": "7.12.1",
+    "@babel/plugin-proposal-object-rest-spread": "7.12.1",
+    "@babel/plugin-proposal-optional-chaining": "7.12.7",
+    "@babel/preset-env": "7.12.7",
+    "@babel/preset-typescript": "7.12.7",
+    "@types/aws-lambda": "^8.10.64",
+    "@types/jest": "26.0.15",
+    "@types/node": "12.19.8",
+    "eslint": "7.14.0",
+    "eslint-config-stable": "0.8.0",
+    "jest": "26.6.3",
+    "rimraf": "3.0.2",
+    "ts-jest": "26.4.2",
+    "typescript": "3.9.7"
+  }
+}
